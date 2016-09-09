@@ -83,18 +83,15 @@ Player.prototype.handleInput = function(key) {
     }
     if(this.col < 0) this.col = 0;
     if(this.col > 4) this.col = 4;
-    if(this.row < 0) this.row = 0;
     if(this.row > 5) this.row = 5;
+    if(this.row < 0) {
+    	this.reset();
+    }    
 };
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 
 var allEnemies = [new Enemy(), new Enemy(), new Enemy(),],
     player = new Player();
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
