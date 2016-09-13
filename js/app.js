@@ -43,6 +43,7 @@ var Player = function() {
 };
 
 Player.prototype.update = function(dt) {
+    this.collision();	
     if(this.moveable) {
         this.x = 101 * this.col;
         this.y = 83 * this.row;
@@ -88,12 +89,24 @@ Player.prototype.handleInput = function(key) {
     	var self = this;
         setTimeout(function () {
             self.reset();
-        }, 500);	
-    }    
+        }, 500);	 
+    }
+};
+
+Player.prototype.collision = function() {
+    var self = this;	
+    allEnemies.forEach(function(enemy) {
+        if(enemy.row == self.row){
+            if(enemy.x + 83 > self.x && enemy.x < self.x + 83){
+                self.reset();
+            }
+        }
+    });
 };
 
 var allEnemies = [new Enemy(), new Enemy(), new Enemy(),],
     player = new Player();
+
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
