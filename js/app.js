@@ -84,8 +84,11 @@ Player.prototype.handleInput = function(key) {
     if(this.col < 0) this.col = 0;
     if(this.col > 4) this.col = 4;
     if(this.row > 5) this.row = 5;
-    if(this.row < 0) {
-    	this.reset();
+    if(this.row < 1) {
+    	var self = this;
+        setTimeout(function () {
+            self.reset();
+        }, 500);	
     }    
 };
 
