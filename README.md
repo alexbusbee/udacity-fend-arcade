@@ -1,4 +1,4 @@
-*How to get Started
+#How to get Started
 1. Download files, or clone repository [https://github.com/alexbusbee/udacity-fend-arcade](https://github.com/alexbusbee/udacity-fend-arcade).
 1. Open index.html in a web browser.
 1. Use arrow keys to control player.
